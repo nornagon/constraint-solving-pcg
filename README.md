@@ -1,4 +1,7 @@
 # Using Constraints to Generate Content That Follows Rules
+
+<img src="example-hinting-output.png" width="256" /> <img src="example-wfcish-output.png" width="256" />
+
 A lot of procedural content generation (PCG) processes produce content that is interesting, but hard to control. For example, if you're generating a randomized level for a game, you might want to enforce that the exit is reachable from the entrance, or that there's a certain amount of treasure on the map (no more, no less). Most PCG systems that enforce these rules do so either by generating content and then checking if it follows the rules and regenerating a new level if it doesn't, or by carefully constructing algorithms that produce rule-following content by default.
 
 But there's another way! Constraint programming is a general technique for solving problems subject to a variety of restrictions. The idea is that you describe a problem to a solver in terms of variables and constraints, and then the solver does some magic and hands you back a solution which meets all the constraints. At first, level generation might not seem like "solving a problem"-a level isn't an equation, after all-but solvers are quite flexible and they can be convinced to produce random solutions to problems, which looks a lot like procedural generation.
@@ -8,7 +11,7 @@ Constraint programming, or CP, is a general name for a family of algorithms that
 
 Using a constraint solver usually involves three steps:
 
-1. First, you describe to the solver what you'd like it to do.
+1. First, you describe to the solver what you'd like it to do.
 2. Then, you invoke the "solve" procedure, which is where the engine does its magic.
 3. Finally, assuming you described a problem which has a solution and the solver was able to find it, you extract the solution from the solver and interpret it into a useful piece of content (say, a game level).
 
